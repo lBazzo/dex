@@ -17,6 +17,11 @@ _ITEM_DEFINE = re.compile(
     re.MULTILINE,
 )
 _IDENTIFIER = re.compile(r'^[A-Za-z_]\w*$')
+_FOREACH_TMHM = re.compile(
+    r'^\s*#\s*define\s+FOREACH_(TM|HM)\(F\)\s*\\\s*$(.*?)(?=^\s*#\s*define|\Z)',
+    re.MULTILINE | re.DOTALL,
+)
+_FOREACH_ENTRY = re.compile(r'\bF\(([A-Z0-9_]+)\)')
 
 def _item_constants(fname: pathlib.Path) -> dict[str, int]:
     """Read simple item macros for expansions that do not use an item enum.
@@ -71,6 +76,22 @@ def _item_constants(fname: pathlib.Path) -> dict[str, int]:
 
     return resolved
 
+def _add_named_tmhm_constants(item_constants: dict[str, int], fname: pathlib.Path) -> None:
+    """Map generated TM/HM item IDs to their numbered item constants.
+
+    Modern pokeemerald-expansion versions build names such as
+    ``ITEM_TM_BODY_PRESS`` from ``FOREACH_TM`` in ``tms_hms.h``.  Those enum
+    members are not available in ``constants/items.h`` itself, but their
+    corresponding numbered constants (``ITEM_TM01``, etc.) are.
+    """
+    text = fname.read_text(encoding='utf-8')
+    for match in _FOREACH_TMHM.finditer(text):
+        machine_type, entries = match.groups()
+        for number, move in enumerate(_FOREACH_ENTRY.findall(entries), start=1):
+            numbered_name = f'ITEM_{machine_type}{number:02d}'
+            if numbered_name in item_constants:
+                item_constants[f'ITEM_{machine_type}_{move}'] = item_constants[numbered_name]
+
 def get_item_name(struct_init: NamedInitializer) -> str:
     for field_init in struct_init.expr.exprs:
         if field_init.name[0].name == 'name':
@@ -113,5 +134,9 @@ def parse_items(fname: pathlib.Path) -> list[str]:
 
     item_constants = _item_constants(
         porydex.config.expansion / 'include' / 'constants' / 'items.h'
+    )
+    _add_named_tmhm_constants(
+        item_constants,
+        porydex.config.expansion / 'include' / 'constants' / 'tms_hms.h',
     )
     return all_item_names(items_data, item_constants)

@@ -25,7 +25,7 @@ var PokedexItemPanel = PokedexResultPanel.extend({
 		this.shortTitle = item.name;
 
 		var buf = '<div class="pfx-body dexentry">';
-		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Pok&eacute;dex</a>';
+		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Sheesh Silver Pok&eacute;dex</a>';
 		buf += '<h1><span class="itemicon" style="'+Dex.getItemIcon(item)+'"></span> <a href="/items/'+id+'" data-target="push" class="subtle">'+item.name+'</a></h1>';
 		buf += '<p>'+Dex.escapeHTML(item.desc||item.shortDesc)+'</p>';
 
@@ -63,7 +63,7 @@ var PokedexAbilityPanel = PokedexResultPanel.extend({
 		this.shortTitle = ability.name;
 
 		var buf = '<div class="pfx-body dexentry">';
-		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Pok&eacute;dex</a>';
+		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Sheesh Silver Pok&eacute;dex</a>';
 		buf += '<h1><a href="/abilities/'+id+'" data-target="push" class="subtle">'+ability.name+'</a></h1>';
 
 		// if (ability.isNonstandard && ability.id !== 'noability') buf += '<div class="warning"><strong>Note:</strong> This is a made-up ability by <a href="http://www.smogon.com/cap/" target="_blank">Smogon CAP</a>.</div>';
@@ -124,7 +124,7 @@ var PokedexTypePanel = PokedexResultPanel.extend({
 		this.shortTitle = this.type;
 
 		var buf = '<div class="pfx-body dexentry">';
-		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Pok&eacute;dex</a>';
+		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Sheesh Silver Pok&eacute;dex</a>';
 		buf += '<h1><a href="/types/'+id+'" data-target="push" class="subtle">'+this.type+'</a></h1>';
 		buf += '<dl>';
 		var atLeastOne = false;
@@ -381,7 +381,7 @@ var PokedexTagPanel = PokedexResultPanel.extend({
 
 		var buf = '<div class="pfx-body dexentry">';
 
-		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Pok&eacute;dex</a>';
+		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Sheesh Silver Pok&eacute;dex</a>';
 		buf += '<h1><a href="/tags/'+id+'" data-target="push" class="subtle">'+name+'</a></h1>';
 
 		if (tag) buf += '<p>'+tag.desc+'</p>';
@@ -623,7 +623,7 @@ var PokedexEggGroupPanel = PokedexResultPanel.extend({
 
 		var buf = '<div class="pfx-body dexentry">';
 
-		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Pok&eacute;dex</a>';
+		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Sheesh Silver Pok&eacute;dex</a>';
 		buf += '<h1><a href="/egggroups/'+id+'" data-target="push" class="subtle">'+names+'</a></h1>';
 
 		if (this.id2) {
@@ -778,7 +778,7 @@ var PokedexCategoryPanel = PokedexResultPanel.extend({
 		this.shortTitle = category.name;
 
 		var buf = '<div class="pfx-body dexentry">';
-		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Pok&eacute;dex</a>';
+		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Sheesh Silver Pok&eacute;dex</a>';
 		buf += '<h1><a href="/categories/'+id+'" data-target="push" class="subtle">'+category.name+'</a></h1>';
 		switch (id) {
 		case 'physical':
@@ -825,7 +825,7 @@ var PokedexTierPanel = PokedexResultPanel.extend({
 		this.shortTitle = name;
 
 		var buf = '<div class="pfx-body dexentry">';
-		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Pok&eacute;dex</a>';
+		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Sheesh Silver Pok&eacute;dex</a>';
 		buf += '<h1><a href="/tiers/'+id+'" data-target="push" class="subtle">'+name+'</a></h1>';
 
 		if (id === 'nfe') {
@@ -867,7 +867,7 @@ var PokedexArticlePanel = PokedexResultPanel.extend({
 		this.shortTitle = id;
 
 		var buf = '<div class="pfx-body dexentry">';
-		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Pok&eacute;dex</a>';
+		buf += '<a href="/" class="pfx-backbutton" data-target="back"><i class="fa fa-chevron-left"></i> Sheesh Silver Pok&eacute;dex</a>';
 		buf += '<h1><a href="/articles/'+id+'" data-target="push" class="subtle">'+id+'</a></h1>';
 		buf += '<div class="article-content"><em>Loading...</em></div>';
 		buf += '</div>';

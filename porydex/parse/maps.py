@@ -38,17 +38,22 @@ def all_maps(existing: ExprList) -> list[str]:
         if not isinstance(entry, Decl):
             break
 
-        if entry.name and isinstance(entry.name, str) and entry.name.startswith('sMapName_'):
+        if (entry.name
+                and isinstance(entry.name, str)
+                and entry.name.startswith('s')
+                and 'MapName_' in entry.name):
             map_name_defs[entry.name] = extract_u8_str(entry.init).title()
 
     region_map_entries = None
     for entry in reversed(existing):
-        if isinstance(entry, Decl) and entry.name == 'gRegionMapEntries':
+        if (isinstance(entry, Decl)
+                and entry.name
+                and entry.name.startswith('gRegionMapEntries')):
             region_map_entries = entry
             break
 
     if not region_map_entries:
-        raise ValueError('failed to find gRegionMapEntries declaration')
+        raise ValueError('failed to find a gRegionMapEntries declaration')
 
     # Now map constants to names and store them in a name map
     map_names = {
