@@ -21,7 +21,7 @@ class OutputFormat(enum.Enum):
             return s
 
 compiler: pathlib.Path = pathlib.Path('gcc')
-expansion: pathlib.Path = pathlib.Path('../pokeemerald-expansion').resolve()
+expansion: pathlib.Path = pathlib.Path('../SheeshExpansion').resolve()
 output: pathlib.Path = pathlib.Path('./site/data').resolve()
 format: OutputFormat = OutputFormat.showdown
 included_mons_file: pathlib.Path | None = None

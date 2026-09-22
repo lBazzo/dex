@@ -89,7 +89,7 @@ def extract(args):
     abilities = parse_abilities(expansion_data / 'abilities.h')
     items = parse_items(expansion_data / 'items.h')
     forms = parse_form_tables(expansion_data / 'pokemon' / 'form_species_tables.h')
-    map_sections = parse_maps(expansion_data / 'region_map' / 'region_map_entries.h')
+    map_sections = parse_maps(expansion_data / 'region_map' / 'region_map_entries_johto.h')
     lvlup_learnsets = parse_level_up_learnsets(custom_headers / 'level_up_learnsets.h', move_names)
     teach_learnsets = parse_teachable_learnsets(expansion_data / 'pokemon' / 'teachable_learnsets.h', move_names)
     national_dex = parse_national_dex_enum(porydex.config.expansion / 'include' / 'constants' / 'pokedex.h')
