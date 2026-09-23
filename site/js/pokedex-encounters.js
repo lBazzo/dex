@@ -24,12 +24,10 @@ var PokedexEncountersPanel = PokedexResultPanel.extend({
 	getDistribution: function() {
 		if (this.results) return this.results;
 
-        var landRates = BattleLocationdex['rates']['land']
-        var surfRates = BattleLocationdex['rates']['surf']
-        var rockRates = BattleLocationdex['rates']['rock']
-        var oldRodRates = BattleLocationdex['rates']['fish']['old']
-        var goodRodRates = BattleLocationdex['rates']['fish']['good']
-        var superRodRates = BattleLocationdex['rates']['fish']['super']
+		var landRates = BattleLocationdex['rates']['land'];
+        var surfRates = BattleLocationdex['rates']['surf'];
+        var rockRates = BattleLocationdex['rates']['rock'];
+        var superRodRates = BattleLocationdex['rates']['fish']['super'];
 
 		var location = this.id;
 		var results = [];
@@ -42,61 +40,52 @@ var PokedexEncountersPanel = PokedexResultPanel.extend({
             return min.toString().padStart(3, '0') + '-' + max.toString().padStart(3, '0') + ' '
         }
 
-        if (BattleLocationdex[location]['land']['encs'] !== undefined) {
+        if (BattleLocationdex[location].land && BattleLocationdex[location].land.encs) {
             for (let i = 0; i < BattleLocationdex[location]['land']['encs'].length; i++) {
                 let enc = BattleLocationdex[location]['land']['encs'][i];
                 let min = enc.minLvl;
                 let max = enc.maxLvl;
                 let mon = enc.species;
+                if (mon === 'missingno') continue;
                 results.push('L' + formatRate(landRates[i]) + formatRange(min, max) + mon);
             }
         }
 
-        if (BattleLocationdex[location]['surf']['encs'] !== undefined) {
+        if (BattleLocationdex[location].surf && BattleLocationdex[location].surf.encs) {
             for (let i = 0; i < BattleLocationdex[location]['surf']['encs'].length; i++) {
                 let enc = BattleLocationdex[location]['surf']['encs'][i];
                 let min = enc.minLvl;
                 let max = enc.maxLvl;
                 let mon = enc.species;
+                if (mon === 'missingno') continue;
                 results.push('W' + formatRate(surfRates[i]) + formatRange(min, max) + mon);
             }
         }
 
-        if (BattleLocationdex[location]['rock']['encs'] !== undefined) {
+        if (BattleLocationdex[location].rock && BattleLocationdex[location].rock.encs) {
             for (let i = 0; i < BattleLocationdex[location]['rock']['encs'].length; i++) {
                 let enc = BattleLocationdex[location]['rock']['encs'][i];
                 let min = enc.minLvl;
                 let max = enc.maxLvl;
                 let mon = enc.species;
+                // Placeholder slots are emitted for maps without a usable
+                // Rock Smash table and must not create a section in the UI.
+                if (mon === 'missingno') continue;
                 results.push('R' + formatRate(rockRates[i]) + formatRange(min, max) + mon);
             }
         }
 
-        if (BattleLocationdex[location]['fish']['encs'] !== undefined) {
-            var oldStart = 0;
-            for (let i = 0; i < oldRodRates.length; i++) {
-                let enc = BattleLocationdex[location]['fish']['encs'][i + oldStart];
-                let min = enc.minLvl;
-                let max = enc.maxLvl;
-                let mon = enc.species;
-                results.push('O' + formatRate(oldRodRates[i]) + formatRange(min, max) + mon);
-            }
-
-            var goodStart = oldRodRates.length + oldStart;
-            for (let i = 0; i < goodRodRates.length; i++) {
-                let enc = BattleLocationdex[location]['fish']['encs'][i + goodStart];
-                let min = enc.minLvl;
-                let max = enc.maxLvl;
-                let mon = enc.species;
-                results.push('G' + formatRate(goodRodRates[i]) + formatRange(min, max) + mon);
-            }
-
-            var superStart = goodRodRates.length + goodStart;
+        if (BattleLocationdex[location].fish && BattleLocationdex[location].fish.encs) {
+            // This project only exposes Super Rod fishing encounters.
+            // Its slots follow the old- and good-rod slots in the shared table.
+            var superStart = BattleLocationdex['rates']['fish']['old'].length + BattleLocationdex['rates']['fish']['good'].length;
             for (let i = 0; i < superRodRates.length; i++) {
-                let enc = BattleLocationdex[location]['fish']['encs'][i + superStart];
+                let enc = BattleLocationdex[location].fish.encs[i + superStart];
+                if (!enc) break;
                 let min = enc.minLvl;
                 let max = enc.maxLvl;
                 let mon = enc.species;
+                if (mon === 'missingno') continue;
                 results.push('S' + formatRate(superRodRates[i]) + formatRange(min, max) + mon);
             }
         }
@@ -156,10 +145,6 @@ var PokedexEncountersPanel = PokedexResultPanel.extend({
 				return '<h3>Surfing</h3>';
 			case 'R':
 				return '<h3>Rock Smash</h3>';
-            case 'O':
-				return '<h3>Old Rod</h3>';
-            case 'G':
-				return '<h3>Good Rod</h3>';
             case 'S':
 				return '<h3>Super Rod</h3>';
 			}

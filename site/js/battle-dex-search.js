@@ -800,6 +800,20 @@ var BattleTypedSearch = /** @class */ (function () {
         return '';
     };
     BattleTypedSearch.prototype.isHere = function (speciesid, location) {
+        // Porydex encounter data is grouped into method tables. Search every
+        // table so a Pokemon filter returns each location where it appears.
+        var encounterMethods = ['land', 'surf', 'rock', 'fish'];
+        for (var i = 0; i < encounterMethods.length; i++) {
+            var encounterTable = location[encounterMethods[i]];
+            if (encounterTable && encounterTable.encs) {
+                for (var j = 0; j < encounterTable.encs.length; j++) {
+                    if (encounterTable.encs[j].species === speciesid)
+                        return true;
+                }
+            }
+        }
+
+        // Retain support for the legacy flat-slot location format.
         if (typeof location.landslot1 !== 'undefined') {
             if (location.landslot1 === speciesid)
                 return true;

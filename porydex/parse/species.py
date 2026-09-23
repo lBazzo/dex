@@ -339,6 +339,7 @@ def zip_evos(all_data: dict,
 
                 # These evo methods interpret the parameter as a minimum level
                 case ExpansionEvoMethod.LEVEL \
+                    | ExpansionEvoMethod.LEVEL_BATTLE_ONLY \
                     | ExpansionEvoMethod.LEVEL_ATK_GT_DEF \
                     | ExpansionEvoMethod.LEVEL_ATK_EQ_DEF \
                     | ExpansionEvoMethod.LEVEL_ATK_LT_DEF \
@@ -359,6 +360,14 @@ def zip_evos(all_data: dict,
                     | ExpansionEvoMethod.LEVEL_FAMILY_OF_THREE \
                     | ExpansionEvoMethod.LEVEL_FAMILY_OF_FOUR:
                     parent_mon['evoLevel'] = param
+
+                # Current expansion methods whose detail is represented by
+                # evoCondition rather than an additional Showdown field.
+                case ExpansionEvoMethod.SPLIT_FROM_EVO \
+                    | ExpansionEvoMethod.SCRIPT_TRIGGER \
+                    | ExpansionEvoMethod.BATTLE_END \
+                    | ExpansionEvoMethod.SPIN:
+                    pass
 
                 # These evo methods interpret the parameter as a specific item
                 case ExpansionEvoMethod.TRADE_ITEM \

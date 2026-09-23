@@ -72,14 +72,25 @@ BODY_COLOR: list[str] = [
 ]
 
 class ExpansionEvoMethod(enum.Enum):
-    FRIENDSHIP = 1
-    FRIENDSHIP_DAY = enum.auto()
-    FRIENDSHIP_NIGHT = enum.auto()
-    LEVEL = enum.auto()
-    TRADE = enum.auto()
-    TRADE_ITEM = enum.auto()
-    ITEM = enum.auto()
-    LEVEL_ATK_GT_DEF = enum.auto()
+    # Current pokeemerald-expansion schema. Detailed requirements such as
+    # friendship and time of day are stored separately in EvolutionParam.
+    NONE = 0
+    LEVEL = 1
+    TRADE = 2
+    ITEM = 3
+    SPLIT_FROM_EVO = 4
+    SCRIPT_TRIGGER = 5
+    LEVEL_BATTLE_ONLY = 6
+    BATTLE_END = 7
+    SPIN = 8
+
+    # Legacy names are retained for the compatibility branches below. Keep
+    # them outside the current expansion's method-ID range.
+    FRIENDSHIP = 100
+    FRIENDSHIP_DAY = 101
+    FRIENDSHIP_NIGHT = 102
+    TRADE_ITEM = 103
+    LEVEL_ATK_GT_DEF = 104
     LEVEL_ATK_EQ_DEF = enum.auto()
     LEVEL_ATK_LT_DEF = enum.auto()
     LEVEL_SILCOON = enum.auto()
@@ -133,14 +144,14 @@ class EvoMethod():
 EVO_METHOD: list[EvoMethod] = [
     EvoMethod('', ''),
 
-    EvoMethod('levelFriendship', ''),
-    EvoMethod('levelFriendship', 'during the day'),
-    EvoMethod('levelFriendship', 'at night'),
     EvoMethod('level', ''),
     EvoMethod('trade', ''),
-    EvoMethod('tradeItem', 'while holding'),
     EvoMethod('useItem', ''),
-    EvoMethod('level', 'with more Attack than Defense'),
+    EvoMethod('other', 'splits from another evolution'),
+    EvoMethod('other', 'script trigger'),
+    EvoMethod('level', 'in battle'),
+    EvoMethod('other', 'after battle'),
+    EvoMethod('other', 'after spinning'),
     EvoMethod('level', 'with equal Attack and Defense'),
     EvoMethod('level', 'with more Defense than Attack'),
     EvoMethod('level', 'based on personality'), # Silcoon
