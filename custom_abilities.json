@@ -1,0 +1,54 @@
+{
+    "Amphibian": {
+        "desc": "This Pokemon's offensive stat is multiplied by 1.5 while using a Water-type attack.",
+        "short": "This Pokemon's offensive stat is multiplied by 1.5 while using a Water-type attack."
+    },
+    "Bug Eyed": {
+        "desc": "This Pokemon's offensive stat is multiplied by 1.5 while using a Bug-type attack.",
+        "short": "This Pokemon's offensive stat is multiplied by 1.5 while using a Bug-type attack."
+    },
+    "Dragon Heritage": {
+        "desc": "This Pokemon's offensive stat is multiplied by 1.5 while using a Dragon-type attack.",
+        "short": "This Pokemon's offensive stat is multiplied by 1.5 while using a Dragon-type attack."
+    },
+    "Fiery Demeanour": {
+        "desc": "This Pokemon's offensive stat is multiplied by 1.5 while using a Fire-type attack.",
+        "short": "This Pokemon's offensive stat is multiplied by 1.5 while using a Fire-type attack."
+    },
+    "Threatening Aura": {
+        "desc": "This Pokemon's offensive stat is multiplied by 1.5 while using a Dark-type attack.",
+        "short": "This Pokemon's offensive stat is multiplied by 1.5 while using a Dark-type attack."
+    },
+    "Nocturnal": {
+        "desc": "If a Pokemon uses a Dark- or Fairy-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon. This Pokemon's moon-based* moves have their effectiveness multiplied by 1.5. (*Moon-based moves includes Moonblast, Blood Moon, Moongeist Beam and Moonlight.)",
+        "short": "Halves damage taken from Dark- or Fairy-type attacks. Boosts moon-based move effectiveness by 50%."
+    },
+    "Flower Block": {
+        "desc": "Prevents ALL Pokemon from lowering this Pokemon's stat stages.",
+        "short": "Prevents ALL Pokemon from lowering this Pokemon's stat stages."
+    },
+    "Forcefield": {
+        "desc": "Pokemon attacking with non-contact moves against this Pokemon lose 1/8 of their maximum HP, rounded down.",
+        "short": ""
+    },
+    "Sense Danger": {
+        "desc": "This Pokemon's critical hit ratio is raised by 2 stages.",
+        "short": "This Pokemon's critical hit ratio is raised by 2 stages."
+    },
+    "Skitter Speed": {
+        "desc": "This Pokemon's Bug- and Poison-type moves have their priority increased by 1.",
+        "short": "This Pokemon's Bug- and Poison-type moves have their priority increased by 1."
+    },
+    "Slippery": {
+        "desc": "This Pokemon is immune to Status moves.",
+        "short": "This Pokemon is immune to Status moves."
+    },
+    "Sun Gazer": {
+        "desc": "This Pokemon receives 2/3 damage from normal effective attacks.",
+        "short": "This Pokemon receives 2/3 damage from normal effective attacks."
+    },
+    "Mind Game": {
+        "desc": "On switch-in, this Pokemon lowers the Special Attack of opposing Pokemon by 1 stage. Pokemon with the Inner Focus, Oblivious, Own Tempo, or Scrappy Abilities and Pokemon behind a substitute are immune.",
+        "short": "On switch-in, this Pokemon lowers the Special Attack of opponents by 1 stage."
+    }
+}

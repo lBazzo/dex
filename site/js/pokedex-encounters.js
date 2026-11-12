@@ -24,7 +24,7 @@ var PokedexEncountersPanel = PokedexResultPanel.extend({
 	getDistribution: function() {
 		if (this.results) return this.results;
 
-		var landRates = BattleLocationdex['rates']['land'];
+        var landRates = BattleLocationdex['rates']['land'];
         var surfRates = BattleLocationdex['rates']['surf'];
         var rockRates = BattleLocationdex['rates']['rock'];
         var superRodRates = BattleLocationdex['rates']['fish']['super'];
@@ -46,7 +46,7 @@ var PokedexEncountersPanel = PokedexResultPanel.extend({
                 let min = enc.minLvl;
                 let max = enc.maxLvl;
                 let mon = enc.species;
-                if (mon === 'missingno') continue;
+				if (mon === 'missingno') continue;
                 results.push('L' + formatRate(landRates[i]) + formatRange(min, max) + mon);
             }
         }
@@ -57,7 +57,7 @@ var PokedexEncountersPanel = PokedexResultPanel.extend({
                 let min = enc.minLvl;
                 let max = enc.maxLvl;
                 let mon = enc.species;
-                if (mon === 'missingno') continue;
+				if (mon === 'missingno') continue;
                 results.push('W' + formatRate(surfRates[i]) + formatRange(min, max) + mon);
             }
         }
@@ -68,7 +68,7 @@ var PokedexEncountersPanel = PokedexResultPanel.extend({
                 let min = enc.minLvl;
                 let max = enc.maxLvl;
                 let mon = enc.species;
-                // Placeholder slots are emitted for maps without a usable
+				// Placeholder slots are emitted for maps without a usable
                 // Rock Smash table and must not create a section in the UI.
                 if (mon === 'missingno') continue;
                 results.push('R' + formatRate(rockRates[i]) + formatRange(min, max) + mon);
@@ -85,7 +85,7 @@ var PokedexEncountersPanel = PokedexResultPanel.extend({
                 let min = enc.minLvl;
                 let max = enc.maxLvl;
                 let mon = enc.species;
-                if (mon === 'missingno') continue;
+				if (mon === 'missingno') continue;
                 results.push('S' + formatRate(superRodRates[i]) + formatRange(min, max) + mon);
             }
         }

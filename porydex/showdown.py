@@ -8,7 +8,7 @@ from porydex.common import name_key
 # SheeshExpansion uses the in-game spelling "Baddie Bad", while the
 # Showdown metadata calls the same LGPE move "Baddy Bad".
 VANILLA_MOVE_KEY_ALIASES = {
-    'baddybad': 'baddiebad',
+#    'baddybad': 'baddiebad',
 }
 
 def index(moves: dict, species: dict, learnsets: dict, encounters: dict):

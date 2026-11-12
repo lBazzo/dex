@@ -2430,7 +2430,7 @@
     ],
     "num": 236,
     "gen": 2,
-    "desc": "If held by a Pikachu, its Attack and Sp. Atk are doubled."
+    "desc": "If held by a Pikachu or Pachirisu, its Attack and Sp. Atk are doubled."
   },
   "lightclay": {
     "name": "Light Clay",

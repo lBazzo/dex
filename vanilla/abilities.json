@@ -481,8 +481,8 @@
     "name": "Defiant",
     "rating": 3,
     "num": 128,
-    "desc": "This Pokemon's Attack is raised by 2 stages for each of its stat stages that is lowered by an opposing Pokemon.",
-    "shortDesc": "This Pokemon's Attack is raised by 2 for each of its stats that is lowered by a foe."
+    "desc": "This Pokemon's Attack is raised by 2 stages for each of its stat stages that is lowered by another Pokemon.",
+    "shortDesc": "This Pokemon's Attack is raised by 2 for each of its stats that is lowered by another Pokemon."
   },
   "deltastream": {
     "flags": {},
@@ -824,8 +824,8 @@
     "name": "Gale Wings",
     "rating": 1.5,
     "num": 177,
-    "desc": "If this Pokemon is at full HP, its Flying-type moves have their priority increased by 1.",
-    "shortDesc": "If this Pokemon is at full HP, its Flying-type moves have their priority increased by 1."
+    "desc": "This Pokemon's Flying-type moves have their priority increased by 1.",
+    "shortDesc": "This Pokemon's Flying-type moves have their priority increased by 1."
   },
   "galvanize": {
     "onModifyTypePriority": -1,
@@ -860,8 +860,8 @@
     "name": "Gooey",
     "rating": 2,
     "num": 183,
-    "desc": "Pokemon making contact with this Pokemon have their Speed lowered by 1 stage.",
-    "shortDesc": "Pokemon making contact with this Pokemon have their Speed lowered by 1 stage."
+    "desc": "Pokemon attacking this Pokemon have their Speed lowered by 1 stage.",
+    "shortDesc": "Pokemon attacking this Pokemon have their Speed lowered by 1 stage."
   },
   "gorillatactics": {
     "onModifyAtkPriority": 1,
@@ -1058,8 +1058,8 @@
     "name": "Ice Body",
     "rating": 1,
     "num": 115,
-    "desc": "If Snow is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn.",
-    "shortDesc": "If Snow is active, this Pokemon heals 1/16 of its max HP each turn."
+    "desc": "If Snow is active, this Pokemon restores 1/8 of its maximum HP, rounded down, at the end of each turn.",
+    "shortDesc": "If Snow is active, this Pokemon heals 1/8 of its max HP each turn."
   },
   "iceface": {
     "onDamagePriority": 1,
@@ -1096,8 +1096,8 @@
     "name": "Illuminate",
     "rating": 0.5,
     "num": 35,
-    "desc": "Prevents other Pokemon from lowering this Pokemon's accuracy stat stage. This Pokemon ignores a target's evasiveness stat stage.",
-    "shortDesc": "This Pokemon's accuracy can't be lowered by others; ignores their evasiveness stat."
+    "desc": "Prevents other Pokemon from lowering this Pokemon's accuracy stat stage. This Pokemon ignores a target's evasiveness stat stage. This Pokemon's moves have their accuracy multiplied by 1.3.",
+    "shortDesc": "Accuracy can't be lowered; ignores enemy evasiveness. Accuracy multiplied by 1.3."
   },
   "illusion": {
     "flags": {
@@ -1222,8 +1222,8 @@
     "name": "Keen Eye",
     "rating": 0.5,
     "num": 51,
-    "desc": "Prevents other Pokemon from lowering this Pokemon's accuracy stat stage. This Pokemon ignores a target's evasiveness stat stage.",
-    "shortDesc": "This Pokemon's accuracy can't be lowered by others; ignores their evasiveness stat."
+    "desc": "Prevents other Pokemon from lowering this Pokemon's accuracy stat stage. This Pokemon ignores a target's evasiveness stat stage. This Pokemon's moves have their accuracy multiplied by 1.3.",
+    "shortDesc": "Accuracy can't be lowered; ignores enemy evasiveness. Accuracy multiplied by 1.3."
   },
   "klutz": {
     "flags": {},
@@ -1929,16 +1929,16 @@
     "name": "Quick Feet",
     "rating": 2.5,
     "num": 95,
-    "desc": "If this Pokemon has a non-volatile status condition, its Speed is multiplied by 1.5. This Pokemon ignores the paralysis effect of halving Speed.",
-    "shortDesc": "If this Pokemon is statused, its Speed is 1.5x; ignores Speed drop from paralysis."
+    "desc": "If this Pokemon has a non-volatile status condition, its Speed is multiplied by 1.5. This Pokemon ignores the paralysis effect of halving Speed and the burn effect of halving Attack.",
+    "shortDesc": "If statused, Speed is multiplied by 1.5x; ignores paralysis Speed drop and burn Attack drop."
   },
   "raindish": {
     "flags": {},
     "name": "Rain Dish",
     "rating": 1.5,
     "num": 44,
-    "desc": "If Rain Dance is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
-    "shortDesc": "If Rain Dance is active, this Pokemon heals 1/16 of its max HP each turn."
+    "desc": "If Rain Dance is active, this Pokemon restores 1/8 of its maximum HP, rounded down, at the end of each turn. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
+    "shortDesc": "If Rain Dance is active, this Pokemon heals 1/8 of its max HP each turn."
   },
   "rattled": {
     "flags": {},
@@ -2622,8 +2622,8 @@
     "name": "Tangling Hair",
     "rating": 2,
     "num": 221,
-    "desc": "Pokemon making contact with this Pokemon have their Speed lowered by 1 stage.",
-    "shortDesc": "Pokemon making contact with this Pokemon have their Speed lowered by 1 stage."
+    "desc": "Pokemon attacking this Pokemon have their Speed lowered by 1 stage.",
+    "shortDesc": "Pokemon attacking this Pokemon have their Speed lowered by 1 stage."
   },
   "technician": {
     "onBasePowerPriority": 30,
